@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+def junitVersion = "5.11.3",
+    restAssuredVersion = "5.5.0",
+    slf4jVersion = "2.0.16"
+
+repositories {
+    mavenCentral()
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation (
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion"
+    )
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
