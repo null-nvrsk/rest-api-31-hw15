@@ -40,17 +40,15 @@ public class ReqresUsersTests {
     @Test
     @DisplayName("Проверка несуществующего пользователя")
     public void invalidSingleUserTest() {
-        // @formatter:off
         given()
-            .log().uri()
-            .contentType(ContentType.JSON)
-        .when()
-            .get("/users/23")
-        .then()
-            .log().status()
-            .log().body()
-            .statusCode(404);
-        // @formatter:on
+                .log().uri()
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/users/23")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(404);
     }
 
     @Test
@@ -58,20 +56,18 @@ public class ReqresUsersTests {
     public void createUserTest() {
         String data = "{ \"name\": \"morpheus\", \"job\": \"leader\" }";
 
-        // @formatter:off
         given()
-            .log().uri()
-            .contentType(ContentType.JSON)
-            .body(data)
-        .when()
-            .post("/users")
-        .then()
-            .log().status()
-            .log().body()
-            .statusCode(201)
-            .body("name", is("morpheus"))
-            .body("job", is("leader"));
-        // @formatter:on
+                .log().uri()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .post("/users")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(201)
+                .body("name", is("morpheus"))
+                .body("job", is("leader"));
     }
 
     @Test
@@ -79,20 +75,18 @@ public class ReqresUsersTests {
     public void updateSingleUserTest() {
         String data = "{ \"name\": \"morpheus\", \"job\": \"zion resident\" }";
 
-        // @formatter:off
         given()
-            .log().uri()
-            .contentType(ContentType.JSON)
-            .body(data)
-        .when()
-            .put("/users/2")
-        .then()
-            .log().status()
-            .log().body()
-            .statusCode(200)
-            .body("name", is("morpheus"))
-            .body("job", is("zion resident"));
-        // @formatter:on
+                .log().uri()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .put("/users/2")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .body("name", is("morpheus"))
+                .body("job", is("zion resident"));
     }
 
     @Test
@@ -100,20 +94,18 @@ public class ReqresUsersTests {
     public void updateFieldsSingleUserTest() {
         String data = "{ \"name\": \"morpheus\", \"job\": \"zion resident\" }";
 
-        // @formatter:off
         given()
-            .log().uri()
-            .contentType(ContentType.JSON)
-            .body(data)
-        .when()
-            .patch("/users/2")
-        .then()
-            .log().status()
-            .log().body()
-            .statusCode(200)
-            .body("name", is("morpheus"))
-            .body("job", is("zion resident"));
-        // @formatter:on
+                .log().uri()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .patch("/users/2")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .body("name", is("morpheus"))
+                .body("job", is("zion resident"));
     }
 
     @Test
@@ -121,19 +113,17 @@ public class ReqresUsersTests {
     public void updateFieldNameSingleUserTest() {
         String data = "{ \"name\": \"neo\" }";
 
-        // @formatter:off
         given()
-            .log().uri()
-            .contentType(ContentType.JSON)
-            .body(data)
-        .when()
-            .patch("/users/2")
-        .then()
-            .log().status()
-            .log().body()
-            .statusCode(200)
-            .body("name", is("neo"));
-        // @formatter:on
+                .log().uri()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .patch("/users/2")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .body("name", is("neo"));
     }
 
     @Test
@@ -141,18 +131,16 @@ public class ReqresUsersTests {
     public void updateFieldJobSingleUserTest() {
         String data = "{ \"job\": \"plumber\" }";
 
-        // @formatter:off
         given()
-            .log().uri()
-            .contentType(ContentType.JSON)
-            .body(data)
-        .when()
-            .patch("/users/2")
-        .then()
-            .log().status()
-            .log().body()
-            .statusCode(200)
-            .body("job", is("plumber"));
-        // @formatter:on
+                .log().uri()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .patch("/users/2")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .body("job", is("plumber"));
     }
 }
